@@ -35,7 +35,7 @@ def convert_price_text_to_number(input_str)
 end
 
 def save_to_csv(property_listings_list)
-  CSV.open("../docs/sold-listings.csv", 'wb') do |csv|
+  CSV.open("./docs/sold-listings.csv", 'wb') do |csv|
       csv << ["Date Sold", "Address", "Land Area", "Beds", "Baths", "Cars", "Sale Price", "Link"]
       for i in 0..property_listings_list.length-1
           csv << [property_listings_list[i].date_sold, property_listings_list[i].address, property_listings_list[i].land_area, property_listings_list[i].beds, 

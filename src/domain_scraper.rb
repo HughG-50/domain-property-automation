@@ -30,18 +30,21 @@ def text_includes_date(input_str)
   return /[0-9]{2}[ ]{1}[a-zA-Z]{3}[ ]{1}[0-9]{4}/.match?(input_str)
 end
 
+def convert_price_text_to_number(input_str)
+  return input_str.gsub(/\D/,'').to_i
+end
+
 # Initialize logger
 logger = Logger.new(STDOUT)
 logger.level = Logger::DEBUG
 
-def domain_sold_listings_scrape(driver, logger, target_suburb_url)
+def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
   driver.navigate.to target_suburb_url
   wait = Selenium::WebDriver::Wait.new(timeout: 5)
 
   logger.info("Navigated to Domain: #{target_suburb_url}")
 
   # Loop through the li elements - results should be around 20-21ish per page, start with li[1] or li[2]
-  # //*[@id="skip-link-content"]/div[1]/div[2]/ul/li[1]
   for listing_num in 1..2
     begin
       # Date sold - will be either on div2, div3 - get the text content
@@ -52,47 +55,62 @@ def domain_sold_listings_scrape(driver, logger, target_suburb_url)
       date_sold = get_date_from_text(date_sold_element.text)
       logger.info("Date sold: #{date_sold}")
 
-      # Listing link
-      # listing_link_element = driver.find_element(xpath: "/*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a")
-      # listing_link = listing_link_element.attribute("href")
-      # logger.info("Link: #{listing_link}")
-
       # Address line 1
       address_line_1_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[1]")
-      address_line_1 = address__line_1_element.text
-      logger.info("Address: #{address_line_1}")
+      address_line_1 = address_line_1_element.text
+
       # Address line 2
       begin
         suburb_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[2]/span[1]")
         state_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[2]/span[2]")
         postcode_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[2]/span[3]")
         address_line_2 = "#{suburb_element.text} #{state_element.text} #{postcode_element.text}"
-        logger.info(address_line_2)
       rescue 
       end
+
+      address = address_line_1 + address_line_2
+      logger.info("Address: #{address}")
+
+      # Beds
+      beds_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[1]/span")
+      beds = beds_element.text.to_i
+      logger.info("Beds: #{beds}")
+
+      # Baths
+      baths_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[2]/span")
+      baths = baths_element.text.to_i
+      logger.info("Baths: #{baths}")
+
+      # Car spaces
+      cars_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[3]/span")
+      cars = cars_element.text.to_i
+      logger.info("Cars: #{cars}")
+
+      # Land Area
+      land_area_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[4]/span")
+      land_area = land_area_element.text
+      logger.info("Land area: #{land_area}")
+
+      # Sold Price
+      sold_price_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[1]/p")
+      sold_price = sold_price_element.text
+      sold_price_number = convert_price_text_to_number(sold_price)
+      logger.info("Sold price: #{sold_price}")
+      logger.info(sold_price_number)
     rescue
     end
   end
-
-  # Beds
-  # //*[@id="skip-link-content"]/div[1]/div[2]/ul/li[5]/div/div[2]/div/div[2]/div[1]/div/span[1]/span
-
-  # Baths
-  # //*[@id="skip-link-content"]/div[1]/div[2]/ul/li[5]/div/div[2]/div/div[2]/div[1]/div/span[2]/span
-
-  # Car spaces
-  # //*[@id="skip-link-content"]/div[1]/div[2]/ul/li[2]/div/div[2]/div/div[2]/div[1]/div/span[3]/span
-
-  # Land Area
-  # //*[@id="skip-link-content"]/div[1]/div[2]/ul/li[2]/div/div[2]/div/div[2]/div[1]/div/span[4]/span
-
-  # Sold Price
-  # //*[@id="skip-link-content"]/div[1]/div[2]/ul/li[5]/div/div[2]/div/div[1]/p
 end
 
-# //*[@id="skip-link-content"]/div[1]/div[2]/ul/li[1]
-#skip-link-content > div.css-1ned5tb > div.css-1mf5g4s > ul > li.is-first-in-list.css-1qp9106
-# document.querySelector("#skip-link-content > div.css-1ned5tb > div.css-1mf5g4s > ul > li.is-first-in-list.css-1qp9106")
+def scrape_pages(driver, logger, target_url)
+  for page_count in 1..5
+    domain_sold_listings_scrape_page(driver, logger, "#{target_url}&page=#{page_count}")
+  end
+end
+
+# Listing link - may need to use search api to get the listing link - no good way to target pseudo class which inserts link
+# listing_link_element = driver.find_element(xpath: "/*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a")
+# listing_link = listing_link_element.attribute("href")
 
 # Initialize Selenium
 # options = Selenium::WebDriver::Chrome::Options.new(args: ['headless'])
@@ -105,6 +123,6 @@ driver = Selenium::WebDriver.for :firefox, options: options
 driver = Selenium::WebDriver.for :firefox
 driver.manage.timeouts.page_load = 300
 
-domain_sold_listings_scrape(driver, logger, "https://www.domain.com.au/sold-listings/crestmead-qld-4132/?excludepricewithheld=1")
+scrape_pages(driver, logger, "https://www.domain.com.au/sold-listings/crestmead-qld-4132/?excludepricewithheld=1")
 
 driver.quit

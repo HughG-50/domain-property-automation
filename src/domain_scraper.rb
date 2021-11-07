@@ -55,6 +55,11 @@ def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
       date_sold = get_date_from_text(date_sold_element.text)
       logger.info("Date sold: #{date_sold}")
 
+      # Listing link
+      listing_link_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a")
+      listing_link = listing_link_element.attribute("href")
+      logger.info(listing_link)
+
       # Address line 1
       address_line_1_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[1]")
       address_line_1 = address_line_1_element.text
@@ -107,10 +112,6 @@ def scrape_pages(driver, logger, target_url)
     domain_sold_listings_scrape_page(driver, logger, "#{target_url}&page=#{page_count}")
   end
 end
-
-# Listing link - may need to use search api to get the listing link - no good way to target pseudo class which inserts link
-# listing_link_element = driver.find_element(xpath: "/*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a")
-# listing_link = listing_link_element.attribute("href")
 
 # Initialize Selenium
 # options = Selenium::WebDriver::Chrome::Options.new(args: ['headless'])

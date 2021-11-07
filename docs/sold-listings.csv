@@ -1,7 +1,96 @@
 Date Sold,Address,Land Area,Beds,Baths,Cars,Sale Price,Link
-04 NOV 2021,"34 Conradi Avenue, CRESTMEAD QLD 4132",491m²,4,2,2,496000,https://www.domain.com.au/34-conradi-avenue-crestmead-qld-4132-2017342496
-04 NOV 2021,"16 Lorraine Street, CRESTMEAD QLD 4132",621m²,4,1,2,435000,https://www.domain.com.au/16-lorraine-street-crestmead-qld-4132-2017269253
-16 SEP 2021,"7 Beelong Street, CRESTMEAD QLD 4132",720m²,3,1,1,365000,https://www.domain.com.au/7-beelong-street-crestmead-qld-4132-2017266635
-16 SEP 2021,"6 Pidgeon Boulevard, CRESTMEAD QLD 4132",452m²,4,2,2,450000,https://www.domain.com.au/6-pidgeon-boulevard-crestmead-qld-4132-2017249071
-23 AUG 2021,"15 Pinewood Street, CRESTMEAD QLD 4132",695m²,3,1,2,340000,https://www.domain.com.au/15-pinewood-street-crestmead-qld-4132-2017149034
-18 AUG 2021,"7 Kyogle Street, CRESTMEAD QLD 4132",722m²,3,1,3,380000,https://www.domain.com.au/7-kyogle-street-crestmead-qld-4132-2017104020
+20 OCT 2021,"52 Malvina Street, RYDE NSW 2112",249m²,3,2,1,1680000,https://www.domain.com.au/52-malvina-street-ryde-nsw-2112-2017322250
+14 SEP 2021,"2/297 Morrison Road, RYDE NSW 2112",N/A,3,3,1,1700000,https://www.domain.com.au/2-297-morrison-road-ryde-nsw-2112-2016840461
+19 JUN 2021,"2B Rokeva Street, EASTWOOD NSW 2122",N/A,4,3,2,1965000,https://www.domain.com.au/2b-rokeva-street-eastwood-nsw-2122-2017093777
+19 JUN 2021,"2C Rokeva Street, EASTWOOD NSW 2122",N/A,4,3,2,1965000,https://www.domain.com.au/2c-rokeva-street-eastwood-nsw-2122-2017036331
+20 MAY 2021,"23 Clanwilliam Street, EASTWOOD NSW 2122",449m²,3,1,1,1550000,https://www.domain.com.au/23-clanwilliam-street-eastwood-nsw-2122-2016966479
+15 MAY 2021,"3 Wattle Street, WEST RYDE NSW 2114",340m²,3,2,2,1307000,https://www.domain.com.au/3-wattle-street-west-ryde-nsw-2114-2016953478
+29 APR 2021,"13 Johnston Road, EASTWOOD NSW 2122",N/A,4,3,2,1770000,https://www.domain.com.au/13-johnston-road-eastwood-nsw-2122-2016904240
+10 APR 2021,"11a Milton Avenue, EASTWOOD NSW 2122",N/A,5,3,2,2050000,https://www.domain.com.au/11a-milton-avenue-eastwood-nsw-2122-2016878183
+06 APR 2021,"72 Balaclava Road, EASTWOOD NSW 2122",413m²,6,3,2,2300000,https://www.domain.com.au/72-balaclava-road-eastwood-nsw-2122-2016872464
+23 FEB 2021,"2 Pratten Avenue, RYDE NSW 2112",362m²,5,3,1,1836000,https://www.domain.com.au/2-pratten-avenue-ryde-nsw-2112-2016833322
+19 DEC 2020,"18 Vimiera Road, EASTWOOD NSW 2122",390m²,5,4,2,1915000,https://www.domain.com.au/18-vimiera-road-eastwood-nsw-2122-2016676849
+11 DEC 2020,"615B Blaxland Road, EASTWOOD NSW 2122",N/A,6,4,3,1730000,https://www.domain.com.au/615b-blaxland-road-eastwood-nsw-2122-2016536828
+30 SEP 2020,"16A Sybil Street, EASTWOOD NSW 2122",N/A,4,3,1,1610000,https://www.domain.com.au/16a-sybil-street-eastwood-nsw-2122-2016483924
+30 SEP 2020,"116A Church Street, RYDE NSW 2112",N/A,3,2,2,910000,https://www.domain.com.au/116a-church-street-ryde-nsw-2112-2016458468
+15 AUG 2020,"55A Marsden Road, WEST RYDE NSW 2114",N/A,4,3,2,1175000,https://www.domain.com.au/55a-marsden-road-west-ryde-nsw-2114-2016395694
+13 AUG 2020,"7 Irvine Crescent, RYDE NSW 2112",N/A,4,2,2,1520000,https://www.domain.com.au/7-irvine-crescent-ryde-nsw-2112-2016374806
+04 JUL 2020,"12A Union Street, EASTWOOD NSW 2122",522m²,5,2,2,1635000,https://www.domain.com.au/12a-union-street-eastwood-nsw-2122-2016305786
+30 MAY 2020,"17B Trelawney Street, EASTWOOD NSW 2122",N/A,3,2,1,1427000,https://www.domain.com.au/17b-trelawney-street-eastwood-nsw-2122-2016250432
+09 MAY 2020,"7A Hockley Road, EASTWOOD NSW 2122",N/A,4,2,1,1700000,https://www.domain.com.au/7a-hockley-road-eastwood-nsw-2122-2016206554
+14 MAR 2020,"20A Woorang Street, EASTWOOD NSW 2122",N/A,5,3,1,1920000,https://www.domain.com.au/20a-woorang-street-eastwood-nsw-2122-2016077050
+14 MAR 2020,"20 Woorang Street, EASTWOOD NSW 2122",N/A,5,3,1,1920000,https://www.domain.com.au/20-woorang-street-eastwood-nsw-2122-2016169038
+25 JAN 2020,"122A Coxs Road, NORTH RYDE NSW 2113",N/A,5,3,1,1665000,https://www.domain.com.au/122a-coxs-road-north-ryde-nsw-2113-2015849306
+14 DEC 2019,"122 Coxs Road, NORTH RYDE NSW 2113",N/A,4,3,1,1610000,https://www.domain.com.au/122-coxs-road-north-ryde-nsw-2113-2015849236
+10 DEC 2019,"7A Irvine Crescent, RYDE NSW 2112",N/A,4,2,2,1500000,https://www.domain.com.au/7a-irvine-crescent-ryde-nsw-2112-2015857640
+07 DEC 2019,"59 Carrington Crescent, EASTWOOD NSW 2122",N/A,5,3,2,1725000,https://www.domain.com.au/59-carrington-crescent-eastwood-nsw-2122-2015849819
+29 NOV 2019,"1B Benson Street, WEST RYDE NSW 2114",N/A,3,2,2,1311000,https://www.domain.com.au/1b-benson-street-west-ryde-nsw-2114-2015845671
+20 NOV 2019,"14B David Avenue, NORTH RYDE NSW 2113",N/A,3,3,2,1580000,https://www.domain.com.au/14b-david-avenue-north-ryde-nsw-2113-2015827463
+11 NOV 2019,"73A Wicks Road, NORTH RYDE NSW 2113",N/A,3,3,1,1235000,https://www.domain.com.au/73a-wicks-road-north-ryde-nsw-2113-2015826987
+26 OCT 2019,"8A Wolger Road, RYDE NSW 2112",N/A,3,2,2,1210000,https://www.domain.com.au/8a-wolger-road-ryde-nsw-2112-2015678701
+04 OCT 2019,"1 Mavis Street, NORTH RYDE NSW 2113",N/A,4,3,1,1600000,https://www.domain.com.au/1-mavis-street-north-ryde-nsw-2113-2015626047
+04 OCT 2019,"55 Marsden Road, WEST RYDE NSW 2114",N/A,3,2,2,1100000,https://www.domain.com.au/55-marsden-road-west-ryde-nsw-2114-2015634662
+01 OCT 2019,"255A Ryedale Road, EASTWOOD NSW 2122",N/A,3,2,1,1390000,https://www.domain.com.au/255a-ryedale-road-eastwood-nsw-2122-2015617520
+30 SEP 2019,"5A Rokeva Street, EASTWOOD NSW 2122",N/A,5,3,2,1650000,https://www.domain.com.au/5a-rokeva-street-eastwood-nsw-2122-2015552570
+29 AUG 2019,"157 North Road, EASTWOOD NSW 2122",N/A,5,3,2,1590000,https://www.domain.com.au/157-north-road-eastwood-nsw-2122-2015503899
+10 JUL 2019,"56 Winbourne Street, WEST RYDE NSW 2114",504m²,5,4,2,1700000,https://www.domain.com.au/56-winbourne-street-west-ryde-nsw-2114-2015003507
+15 JUN 2019,"4 Northcott Street, NORTH RYDE NSW 2113",382m²,3,2,2,1210000,https://www.domain.com.au/4-northcott-street-north-ryde-nsw-2113-2015290455
+11 MAY 2019,"36A David Avenue, NORTH RYDE NSW 2113",303m²,3,2,2,1068000,https://www.domain.com.au/36a-david-avenue-north-ryde-nsw-2113-2015121482
+29 MAR 2019,"73A Coxs Road, NORTH RYDE NSW 2113",383m²,4,2,1,1300000,https://www.domain.com.au/73a-coxs-road-north-ryde-nsw-2113-2014994309
+22 FEB 2019,"33B Wentworth Road, EASTWOOD NSW 2122",N/A,4,3,1,1500000,https://www.domain.com.au/33b-wentworth-road-eastwood-nsw-2122-2014913621
+12 FEB 2019,"6B Bidgee Road, RYDE NSW 2112",N/A,3,3,2,1150000,https://www.domain.com.au/6b-bidgee-road-ryde-nsw-2112-2014902898
+15 JAN 2019,"11 Culgoa Avenue, EASTWOOD NSW 2122",N/A,4,3,2,1280000,https://www.domain.com.au/11-culgoa-avenue-eastwood-nsw-2122-2014793976
+04 JAN 2019,"50 Malvina Street, RYDE NSW 2112",N/A,3,2,1,1180000,https://www.domain.com.au/50-malvina-street-ryde-nsw-2112-2014649504
+29 OCT 2018,"3A Andrew Street, WEST RYDE NSW 2114",366m²,4,2,1,1205000,https://www.domain.com.au/3a-andrew-street-west-ryde-nsw-2114-2014653771
+03 SEP 2018,"1/35B Midson Road, EASTWOOD NSW 2122",196m²,4,2,2,1753689,https://www.domain.com.au/1-35b-midson-road-eastwood-nsw-2122-2015499124
+11 AUG 2018,"22a Weaver Street, RYDE NSW 2112",381m²,3,2,2,1320000,https://www.domain.com.au/22a-weaver-street-ryde-nsw-2112-2014506015
+28 JUL 2018,"2/36 David Avenue, NORTH RYDE NSW 2113",N/A,3,2,1,1128000,https://www.domain.com.au/2-36-david-avenue-north-ryde-nsw-2113-2014473335
+24 JUL 2018,"6a/Dawes Crescent, EASTWOOD NSW 2122",N/A,5,3,2,1700000,https://www.domain.com.au/6a-dawes-crescent-eastwood-nsw-2122-2014523772
+03 JUL 2018,"15A Linley Way, RYDE NSW 2112",300m²,3,2,1,1220000,https://www.domain.com.au/15a-linley-way-ryde-nsw-2112-2014452125
+30 JUN 2018,"35A Dorothy Street, RYDE NSW 2112",400m²,4,2,2,1730000,https://www.domain.com.au/35a-dorothy-street-ryde-nsw-2112-2014414535
+18 MAY 2018,"10A Ruse Street, NORTH RYDE NSW 2113",815m²,4,2,4,1375000,https://www.domain.com.au/10a-ruse-street-north-ryde-nsw-2113-2014284860
+05 MAY 2018,"6B Dawes Crescent, EASTWOOD NSW 2122",N/A,5,3,2,1700000,https://www.domain.com.au/6b-dawes-crescent-eastwood-nsw-2122-2014231683
+14 APR 2018,"12B Lovell Road, EASTWOOD NSW 2122",N/A,4,2,1,1500000,https://www.domain.com.au/12b-lovell-road-eastwood-nsw-2122-2014286914
+17 MAR 2018,"2/54 Beswick Avenue, NORTH RYDE NSW 2113",N/A,3,2,1,1376000,https://www.domain.com.au/2-54-beswick-avenue-north-ryde-nsw-2113-2014192591
+05 JAN 2018,"4 Forster Street, WEST RYDE NSW 2114",351m²,4,2,1,1470000,https://www.domain.com.au/4-forster-street-west-ryde-nsw-2114-2013987191
+05 JAN 2018,"5A Hermoyne Street, WEST RYDE NSW 2114",450m²,4,2,2,1395000,https://www.domain.com.au/5a-hermoyne-street-west-ryde-nsw-2114-2013975939
+05 DEC 2017,"4/278 Quarry Road, RYDE NSW 2112",N/A,3,2,3,1235000,https://www.domain.com.au/4-278-quarry-road-ryde-nsw-2112-2013936067
+18 NOV 2017,"2/40 David Avenue, NORTH RYDE NSW 2113",N/A,3,1,1,1289000,https://www.domain.com.au/2-40-david-avenue-north-ryde-nsw-2113-2013968499
+28 OCT 2017,"44A Ford Street, NORTH RYDE NSW 2113",N/A,4,3,1,1730000,https://www.domain.com.au/44a-ford-street-north-ryde-nsw-2113-2013898640
+28 OCT 2017,"5A Numa Road, NORTH RYDE NSW 2113",N/A,5,3,1,1870000,https://www.domain.com.au/5a-numa-road-north-ryde-nsw-2113-2013912835
+26 OCT 2017,"41B Bridge Road, NORTH RYDE NSW 2113",N/A,4,2,1,1501000,https://www.domain.com.au/41b-bridge-road-north-ryde-nsw-2113-2013848527
+18 OCT 2017,"2A Beatrice Street, NORTH RYDE NSW 2113",N/A,3,2,2,1470000,https://www.domain.com.au/2a-beatrice-street-north-ryde-nsw-2113-2013808529
+14 OCT 2017,"24A Smalls Road, RYDE NSW 2112",N/A,4,3,1,1735000,https://www.domain.com.au/24a-smalls-road-ryde-nsw-2112-2013874488
+23 SEP 2017,"15 Cook Street, NORTH RYDE NSW 2113",N/A,3,2,1,1430000,https://www.domain.com.au/15-cook-street-north-ryde-nsw-2113-2013814700
+12 AUG 2017,"33A Wentworth Road, EASTWOOD NSW 2122",N/A,4,3,1,1600000,https://www.domain.com.au/33a-wentworth-road-eastwood-nsw-2122-2013734328
+31 JUL 2017,"18 Schumack Street, NORTH RYDE NSW 2113",N/A,3,2,1,1450000,https://www.domain.com.au/18-schumack-street-north-ryde-nsw-2113-2013691691
+29 JUL 2017,"49A Cooney Street, NORTH RYDE NSW 2113",N/A,4,3,2,1740000,https://www.domain.com.au/49a-cooney-street-north-ryde-nsw-2113-2013705358
+20 MAY 2017,"1/8 Bidgee Road, RYDE NSW 2112",N/A,3,1,2,1370000,https://www.domain.com.au/1-8-bidgee-road-ryde-nsw-2112-2013534415
+21 MAR 2017,"16 Raimonde Road, EASTWOOD NSW 2122",N/A,5,3,2,1855000,https://www.domain.com.au/16-raimonde-road-eastwood-nsw-2122-2013389914
+18 OCT 2016,"44A Kent Road, NORTH RYDE NSW 2113",N/A,3,2,2,1290000,https://www.domain.com.au/44a-kent-road-north-ryde-nsw-2113-2015550276
+07 OCT 2016,"7 Linley Way, RYDE NSW 2112",N/A,3,2,2,1300000,https://www.domain.com.au/7-linley-way-ryde-nsw-2112-2013069772
+30 SEP 2016,"4A Beatrice Street, NORTH RYDE NSW 2113",N/A,4,3,3,1760000,https://www.domain.com.au/4a-beatrice-street-north-ryde-nsw-2113-2013040628
+24 SEP 2016,"7 Jopling Street, NORTH RYDE NSW 2113",N/A,3,3,2,1655000,https://www.domain.com.au/7-jopling-street-north-ryde-nsw-2113-2013027477
+07 SEP 2016,"35a Wilson St, NORTH RYDE NSW 2113",N/A,3,2,2,1350000,https://www.domain.com.au/35a-wilson-st-north-ryde-nsw-2113-2013004142
+02 JUL 2016,"7A Oakes Ave, EASTWOOD NSW 2122",348m²,4,2,1,1300000,https://www.domain.com.au/7a-oakes-ave-eastwood-nsw-2122-2012854175
+04 JUN 2016,"16 Shaftsbury Road, WEST RYDE NSW 2114",N/A,4,3,2,1450000,https://www.domain.com.au/16-shaftsbury-road-west-ryde-nsw-2114-2012788881
+17 AUG 2015,"17A Macleay Street, RYDE NSW 2112",N/A,3,2,1,1338000,https://www.domain.com.au/17a-macleay-street-ryde-nsw-2112-2012127810
+09 MAY 2015,"18/36-40 Balaclava Road, EASTWOOD NSW 2122",N/A,4,2,2,1295000,https://www.domain.com.au/18-36-40-balaclava-road-eastwood-nsw-2122-2011915534
+06 MAY 2015,"5A Terry Road, EASTWOOD NSW 2122",N/A,3,2,1,1300000,https://www.domain.com.au/5a-terry-road-eastwood-nsw-2122-2011925557
+09 DEC 2014,"2/1 Valley Road, EASTWOOD NSW 2122",N/A,3,1,1,875000,https://www.domain.com.au/2-1-valley-road-eastwood-nsw-2122-2011520054
+18 OCT 2014,"6 Eulo Parade, RYDE NSW 2112",249m²,3,2,2,1095000,https://www.domain.com.au/6-eulo-parade-ryde-nsw-2112-2011496280
+20 SEP 2014,"5 Terry Road, EASTWOOD NSW 2122",N/A,4,2,1,1270000,https://www.domain.com.au/5-terry-road-eastwood-nsw-2122-2011391249
+09 AUG 2014,"3 Hockley Road, EASTWOOD NSW 2122",350m²,4,3,2,1236000,https://www.domain.com.au/3-hockley-road-eastwood-nsw-2122-2011311904
+08 MAR 2014,"25 Belmore Street, RYDE NSW 2112",N/A,3,2,1,918000,https://www.domain.com.au/25-belmore-street-ryde-nsw-2112-2010976895
+01 AUG 2013,"4b Bidgee Road, RYDE NSW 2112",268m²,3,3,1,857000,https://www.domain.com.au/4b-bidgee-road-ryde-nsw-2112-2010584945
+17 MAY 2013,"45B Norma Avenue, EASTWOOD NSW 2122",N/A,4,2,2,950000,https://www.domain.com.au/45b-norma-avenue-eastwood-nsw-2122-2010409422
+04 MAY 2013,"1/30 Vimiera Road, EASTWOOD NSW 2122",N/A,3,2,1,840000,https://www.domain.com.au/1-30-vimiera-road-eastwood-nsw-2122-2010383289
+23 MAR 2013,"30A Jones Street, RYDE NSW 2112",N/A,3,2,2,783000,https://www.domain.com.au/30a-jones-street-ryde-nsw-2112-2010302392
+14 DEC 2012,"15 Longview Street, EASTWOOD NSW 2122",N/A,4,2,1,830000,https://www.domain.com.au/15-longview-street-eastwood-nsw-2122-2010126332
+27 JUL 2012,"1/82 Bridge Road, RYDE NSW 2112",N/A,4,2,2,783000,https://www.domain.com.au/1-82-bridge-road-ryde-nsw-2112-2009791523
+11 FEB 2012,"1A Kent Rd, NORTH RYDE NSW 2113",N/A,4,4,1,820000,https://www.domain.com.au/1a-kent-rd-north-ryde-nsw-2113-2009493234
+04 JUL 2011,"1175 Victoria Road, WEST RYDE NSW 2114",N/A,3,2,3,680000,https://www.domain.com.au/1175-victoria-road-west-ryde-nsw-2114-2009072020
+08 OCT 2009,"21 Trevitt Road, NORTH RYDE NSW 2113",260m²,3,2,1,632000,https://www.domain.com.au/21-trevitt-road-north-ryde-nsw-2113-2008001439
+29 APR 2009,"18 Fisher Avenue, RYDE NSW 2112",N/A,3,2,2,810000,https://www.domain.com.au/18-fisher-avenue-ryde-nsw-2112-2007699432
+03 NOV 2021,"33 Hart Street, DUNDAS VALLEY NSW 2117",332m²,4,2,2,1560000,https://www.domain.com.au/33-hart-street-dundas-valley-nsw-2117-2017353703
+27 OCT 2021,"35B Wilding Street, MARSFIELD NSW 2122",N/A,5,3,1,2430000,https://www.domain.com.au/35b-wilding-street-marsfield-nsw-2122-2017304261

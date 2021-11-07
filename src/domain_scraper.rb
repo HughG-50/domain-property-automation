@@ -51,14 +51,18 @@ def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
   listings = [];
 
   logger.info("Navigated to Domain: #{target_suburb_url}")
-  for listing_num in 1..20
+  for listing_num in 1..22
     begin
       # Date sold - will be either on div2, div3 - get the text content
-      date_sold_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[1]/div[2]")
-      if(!text_includes_date(date_sold_element.text)) 
-        date_sold_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[1]/div[3]")
+      begin
+        date_sold_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[1]/div[2]")
+        if(!text_includes_date(date_sold_element.text)) 
+          date_sold_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[1]/div[3]")
+        end
+        date_sold = get_date_from_text(date_sold_element.text)
+      rescue
+        date_sold = "N/A"
       end
-      date_sold = get_date_from_text(date_sold_element.text)
       # logger.info("Date sold: #{date_sold}")
 
       # Listing link
@@ -75,11 +79,14 @@ def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
         suburb_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[2]/span[1]")
         state_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[2]/span[2]")
         postcode_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[2]/span[3]")
-        # address_line_2 = "#{suburb_element.text} #{state_element.text} #{postcode_element.text}"
+        address_line_2 = "#{suburb_element.text} #{state_element.text} #{postcode_element.text}"
       rescue 
       end
 
-      address = address_line_1 + address_line_2
+      address = address_line_1
+      if address_line_2 
+        address = address + address_line_2
+      end
       # logger.info("Address: #{address}")
 
       # Beds
@@ -98,8 +105,12 @@ def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
       # logger.info("Cars: #{cars}")
 
       # Land Area
-      land_area_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[4]/span")
-      land_area = land_area_element.text
+      begin
+        land_area_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[4]/span")
+        land_area = land_area_element.text
+      rescue
+        land_area = "N/A"
+      end
       # logger.info("Land area: #{land_area}")
 
       # Sold Price
@@ -143,7 +154,9 @@ driver = Selenium::WebDriver.for :firefox
 driver.manage.timeouts.page_load = 300
 
 # Run scraper
-sold_properties = scrape_pages(driver, logger, "https://www.domain.com.au/sold-listings/crestmead-qld-4132/?excludepricewithheld=1")
+# "https://www.domain.com.au/sold-listings/crestmead-qld-4132/?excludepricewithheld=1"
+# https://www.domain.com.au/sold-listings/?suburb=ryde-nsw-2112,north-ryde-nsw-2113,west-ryde-nsw-2114,eastwood-nsw-2122&ptype=duplex&excludepricewithheld=1
+sold_properties = scrape_pages(driver, logger, "https://www.domain.com.au/sold-listings/?suburb=ryde-nsw-2112,north-ryde-nsw-2113,west-ryde-nsw-2114,eastwood-nsw-2122&ptype=duplex&excludepricewithheld=1")
 save_to_csv(sold_properties)
 
 driver.quit

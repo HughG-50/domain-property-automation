@@ -6,7 +6,7 @@ require 'json'
 require 'logger'
 require 'selenium-webdriver'
 
-class Job 
+class Listing
   attr_accessor :address, :land_area, :beds, :baths, :car_spaces, :sell_price, :date_sold, :listing_link
 
   def initialize(address, land_area, beds, baths, car_spaces, sell_price, date_sold, listing_link)
@@ -34,17 +34,23 @@ def convert_price_text_to_number(input_str)
   return input_str.gsub(/\D/,'').to_i
 end
 
-# Initialize logger
-logger = Logger.new(STDOUT)
-logger.level = Logger::DEBUG
+def save_to_csv(property_listings_list, suburb_name)
+  CSV.open("../docs/#{suburb_name}-recently-sold.csv", 'wb') do |csv|
+      csv << ["Date Sold", "Address", "Land Area", "Beds", "Baths", "Cars", "Sale Price", "Link"]
+      for i in 0..property_listings_list.length-1
+          csv << [property_listings_list[i].date_sold, property_listings_list[i].address, property_listings_list[i].land_area, property_listings_list[i].beds, 
+          property_listings_list[i].baths, property_listings_list[i].car_spaces, property_listings_list[i].sell_price, property_listings_list[i].listing_link]
+      end
+  end
+end
 
 def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
   driver.navigate.to target_suburb_url
   wait = Selenium::WebDriver::Wait.new(timeout: 5)
 
-  logger.info("Navigated to Domain: #{target_suburb_url}")
+  listings = [];
 
-  # Loop through the li elements - results should be around 20-21ish per page, start with li[1] or li[2]
+  logger.info("Navigated to Domain: #{target_suburb_url}")
   for listing_num in 1..2
     begin
       # Date sold - will be either on div2, div3 - get the text content
@@ -101,29 +107,43 @@ def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
       sold_price = sold_price_element.text
       sold_price_number = convert_price_text_to_number(sold_price)
       logger.info("Sold price: #{sold_price}")
-      logger.info(sold_price_number)
+
+      # Create Object and push to array
+      listing = Listing.new(address, land_area, beds, baths, cars, sold_price_number, date_sold, listing_link)
+      listings.push(listing)
     rescue
     end
   end
+
+  return listings
 end
 
 def scrape_pages(driver, logger, target_url)
-  for page_count in 1..5
-    domain_sold_listings_scrape_page(driver, logger, "#{target_url}&page=#{page_count}")
+  property_listings_list = []
+  
+  for page_count in 1..3
+    listings = domain_sold_listings_scrape_page(driver, logger, "#{target_url}&page=#{page_count}")
+    property_listings = property_listings_list + listings
   end
+
+  return property_listings_list
 end
+
+# Initialize logger
+logger = Logger.new(STDOUT)
+logger.level = Logger::DEBUG
 
 # Initialize Selenium
 # options = Selenium::WebDriver::Chrome::Options.new(args: ['headless'])
 # driver = Selenium::WebDriver.for(:chrome, options: options)
-
-# Run scraper
 options = Selenium::WebDriver::Firefox::Options.new
 options.headless!
 driver = Selenium::WebDriver.for :firefox, options: options
 driver = Selenium::WebDriver.for :firefox
 driver.manage.timeouts.page_load = 300
 
-scrape_pages(driver, logger, "https://www.domain.com.au/sold-listings/crestmead-qld-4132/?excludepricewithheld=1")
+# Run scraper
+sold_properties = scrape_pages(driver, logger, "https://www.domain.com.au/sold-listings/crestmead-qld-4132/?excludepricewithheld=1")
+save_to_csv(sold_properties, "Crestmead")
 
 driver.quit

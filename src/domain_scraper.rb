@@ -34,8 +34,8 @@ def convert_price_text_to_number(input_str)
   return input_str.gsub(/\D/,'').to_i
 end
 
-def save_to_csv(property_listings_list, suburb_name)
-  CSV.open("../docs/#{suburb_name}-recently-sold.csv", 'wb') do |csv|
+def save_to_csv(property_listings_list)
+  CSV.open("../docs/sold-listings.csv", 'wb') do |csv|
       csv << ["Date Sold", "Address", "Land Area", "Beds", "Baths", "Cars", "Sale Price", "Link"]
       for i in 0..property_listings_list.length-1
           csv << [property_listings_list[i].date_sold, property_listings_list[i].address, property_listings_list[i].land_area, property_listings_list[i].beds, 
@@ -51,7 +51,7 @@ def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
   listings = [];
 
   logger.info("Navigated to Domain: #{target_suburb_url}")
-  for listing_num in 1..2
+  for listing_num in 1..20
     begin
       # Date sold - will be either on div2, div3 - get the text content
       date_sold_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[1]/div[2]")
@@ -59,12 +59,12 @@ def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
         date_sold_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[1]/div[3]")
       end
       date_sold = get_date_from_text(date_sold_element.text)
-      logger.info("Date sold: #{date_sold}")
+      # logger.info("Date sold: #{date_sold}")
 
       # Listing link
       listing_link_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a")
       listing_link = listing_link_element.attribute("href")
-      logger.info(listing_link)
+      # logger.info(listing_link)
 
       # Address line 1
       address_line_1_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[1]")
@@ -75,38 +75,38 @@ def domain_sold_listings_scrape_page(driver, logger, target_suburb_url)
         suburb_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[2]/span[1]")
         state_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[2]/span[2]")
         postcode_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/a/h2/span[2]/span[3]")
-        address_line_2 = "#{suburb_element.text} #{state_element.text} #{postcode_element.text}"
+        # address_line_2 = "#{suburb_element.text} #{state_element.text} #{postcode_element.text}"
       rescue 
       end
 
       address = address_line_1 + address_line_2
-      logger.info("Address: #{address}")
+      # logger.info("Address: #{address}")
 
       # Beds
       beds_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[1]/span")
       beds = beds_element.text.to_i
-      logger.info("Beds: #{beds}")
+      # logger.info("Beds: #{beds}")
 
       # Baths
       baths_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[2]/span")
       baths = baths_element.text.to_i
-      logger.info("Baths: #{baths}")
+      # logger.info("Baths: #{baths}")
 
       # Car spaces
       cars_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[3]/span")
       cars = cars_element.text.to_i
-      logger.info("Cars: #{cars}")
+      # logger.info("Cars: #{cars}")
 
       # Land Area
       land_area_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[2]/div[1]/div/span[4]/span")
       land_area = land_area_element.text
-      logger.info("Land area: #{land_area}")
+      # logger.info("Land area: #{land_area}")
 
       # Sold Price
       sold_price_element = driver.find_element(xpath: "//*[@id='skip-link-content']/div[1]/div[2]/ul/li[#{listing_num}]/div/div[2]/div/div[1]/p")
       sold_price = sold_price_element.text
       sold_price_number = convert_price_text_to_number(sold_price)
-      logger.info("Sold price: #{sold_price}")
+      # logger.info("Sold price: #{sold_price}")
 
       # Create Object and push to array
       listing = Listing.new(address, land_area, beds, baths, cars, sold_price_number, date_sold, listing_link)
@@ -121,9 +121,9 @@ end
 def scrape_pages(driver, logger, target_url)
   property_listings_list = []
   
-  for page_count in 1..3
+  for page_count in 1..5
     listings = domain_sold_listings_scrape_page(driver, logger, "#{target_url}&page=#{page_count}")
-    property_listings = property_listings_list + listings
+    property_listings_list = property_listings_list + listings
   end
 
   return property_listings_list
@@ -144,6 +144,6 @@ driver.manage.timeouts.page_load = 300
 
 # Run scraper
 sold_properties = scrape_pages(driver, logger, "https://www.domain.com.au/sold-listings/crestmead-qld-4132/?excludepricewithheld=1")
-save_to_csv(sold_properties, "Crestmead")
+save_to_csv(sold_properties)
 
 driver.quit

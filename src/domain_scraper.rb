@@ -153,8 +153,13 @@ driver = Selenium::WebDriver.for :firefox, options: options
 driver = Selenium::WebDriver.for :firefox
 driver.manage.timeouts.page_load = 300
 
-# Run scraper
-# "https://www.domain.com.au/sold-listings/crestmead-qld-4132/?excludepricewithheld=1"
+# Run scraper - target suburbs
+# https://www.domain.com.au/sold-listings/crestmead-qld-4132/?excludepricewithheld=1
+# https://www.domain.com.au/sold-listings/boronia-heights-qld-4124/?excludepricewithheld=1
+# https://www.domain.com.au/sold-listings/edens-landing-qld-4207/?excludepricewithheld=1
+
+# For fun
+# https://www.domain.com.au/sold-listings/redland-bay-qld-4165/?excludepricewithheld=1
 # https://www.domain.com.au/sold-listings/?suburb=ryde-nsw-2112,north-ryde-nsw-2113,west-ryde-nsw-2114,eastwood-nsw-2122&ptype=duplex&excludepricewithheld=1
 sold_properties = scrape_pages(driver, logger, "https://www.domain.com.au/sold-listings/?suburb=ryde-nsw-2112,north-ryde-nsw-2113,west-ryde-nsw-2114,eastwood-nsw-2122&ptype=duplex&excludepricewithheld=1")
 save_to_csv(sold_properties)
